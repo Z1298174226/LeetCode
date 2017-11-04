@@ -74,7 +74,7 @@ public class WildcardMatching {
     public static void main(String[] args) {
       // String s = "abefcdgiescdfi";   //"abefcdgiescdfimde"
       // String p = "ab*cd?i";
-        String s = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        String s = "aaaaaaaaaaaaaaa";
         String p = "?????????????????????**a";
         System.out.println(WildcardMatching.isMatch(s, p));
     }

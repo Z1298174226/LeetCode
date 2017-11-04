@@ -53,8 +53,6 @@ public class WildcardMatchingII {
     }
 
     public static void main(String[] args) {
-         //String s = "abefcdgiescdfi";   //"abefcdgiescdfimde"
-         //String p = "ab*cd.i";
         String s = "aaaa";
         String p = "ab*a*c*aa";
         System.out.println(WildcardMatchingII.isMatch(s, p));
