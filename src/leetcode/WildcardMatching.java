@@ -4,36 +4,6 @@ package leetcode;
  * Created by qtfs on 2017/11/2.
  */
 public class WildcardMatching {
-    /*
-    public static boolean isMatch(String s, String p) {
-        if(s.length() == 0 && p.length() == 0) return true;
-        else if(s.length() == 0) return false;
-        else if(p.length() == 0) return false;
-
-        int index = 0;
-        for(int i = 0; i < s.length(); i++) {
-            boolean temp_1 = s.charAt(i) == p.charAt(index);
-            boolean temp_2 = p.charAt(index) == '?' || p.charAt(index) == '*';
-            boolean temp_3 = index > 0 && p.charAt(index - 1) == '*';
-            boolean temp = temp_1 || temp_2 || temp_3;
-            if(!temp) return false;
-            if(!temp_1 && temp_3) continue;
-            else {
-                index++;
-                if(index == p.length()) {
-                    if(p.charAt(index - 1) == '*') return true;
-                    else {
-                        if(i == s.length() - 1) return true;
-                        else return false;
-                    }
-                }
-            }
-        }
-        if(index != p.length()) return false;
-        else return true;
-    }
-    */
-
     public static boolean isMatch(String s, String p) {
         int[][] dp = new int[s.length() + 1][p.length() + 1];
         int result = 0;

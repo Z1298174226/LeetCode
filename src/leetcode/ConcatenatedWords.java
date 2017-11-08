@@ -34,7 +34,7 @@ public class ConcatenatedWords {
         return list;
     }
     public static void main(String[] args) {
-        String[] words = new String[]{"cat","cats","catsdogcats","dog","catcatdagcat","dagdogdogcat","catdogcatdogcatdogcatdogcatdog","dogcatsdog","hippopotamuses","rat","ratcatdogcat"};
+        String[] words = new String[]{"cat","cats","catsdogcats","dog","catcatdagcat","dagdogdogcat","catdogcatdogcatdogcatdogcatdog","dogcatsdog","hippopotamuses","rat","ratcatdogcat", "s"};
         List<String> list = ConcatenatedWords.findAllConcatenatedWordsInADict(words);
         for(String s : list) {
             System.out.println(s);

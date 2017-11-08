@@ -1,47 +1,41 @@
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
- * Created by qtfs on 2017/11/4.
+ * Created by qtfs on 2017/11/5.
  */
 public class ShoppingOffers {
     public static int shoppingOffers(List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
-        Map<List<Integer>, Integer> dp = new HashMap<>();
-        List<Integer> allZero = new ArrayList<>();
-        for(int i=0;i<needs.size();i++) {
-            allZero.add(0);
-        }
-        dp.put(allZero, 0);
-        return dfs(needs, price, special, dp);
+        int result = 0;
+        Map<List<Integer>, Integer> map = new HashMap<List<Integer>, Integer>();
+        result = dfs(price, special, needs, map);
+        return result;
     }
-    private static int dfs(List<Integer> needs, List<Integer> price, List<List<Integer>> special, Map<List<Integer>, Integer> dp) {
-        if(dp.containsKey(needs)) return dp.get(needs);
-        int res = Integer.MAX_VALUE;
+
+    public static int dfs(List<Integer> prices, List<List<Integer>> special , List<Integer> needs, Map<List<Integer>, Integer> map) {
+        if(map.containsKey(needs)) return map.get(needs);
+        int result = Integer.MAX_VALUE;
         for(List<Integer> s : special) {
-            List<Integer> needsCopy = new ArrayList<>(needs);
-            boolean valid = true;
-            for(int i=0;i<needs.size();i++) {
-                needsCopy.set(i, needsCopy.get(i) - s.get(i));
-                if(needsCopy.get(i) < 0) {
-                    valid = false;
+            boolean flag = true;
+            List<Integer> copyNeeds = new ArrayList<Integer>(needs);
+            for(int i = 0; i < needs.size(); i++) {
+                copyNeeds.set(i, copyNeeds.get(i) - s.get(i));
+                if(copyNeeds.get(i) < 0) {
+                    flag = false;
                     break;
                 }
             }
-            if(valid) {
-                res = Math.min(res, s.get(needs.size()) + dfs(needsCopy, price, special, dp));
+            if(flag) {
+                result = Math.min(result, s.get(special.size() - 1) + dfs(prices, special, copyNeeds, map));
             }
         }
         int noSpecial = 0;
-        for(int i=0;i<needs.size();i++) {
-            noSpecial += needs.get(i) * price.get(i);
+        for(int i = 0; i < needs.size(); i++) {
+            noSpecial += prices.get(i) * needs.get(i);
         }
-        res = Math.min(res, noSpecial);
-
-        dp.put(needs, res);
-        return res;
+        result = Math.min(result, noSpecial);
+        map.put(needs, result);
+        return result;
     }
 }

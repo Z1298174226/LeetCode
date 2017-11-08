@@ -62,8 +62,5 @@ public class CreateMaximumNumber {
         int[] nums2 = new int[]{6, 0, 4};
         for(int i : CreateMaximumNumber.maxNumber(nums1, nums2, 5))
             System.out.print(" " + i);
-        System.out.println();
-        for(int i : CreateMaximumNumber.getMaxN(nums1, 2))
-            System.out.print(" " + i);
     }
 }

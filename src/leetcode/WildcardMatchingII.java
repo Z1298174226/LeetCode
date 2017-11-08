@@ -4,6 +4,39 @@ package leetcode;
  * Created by qtfs on 2017/11/3.
  */
 public class WildcardMatchingII {
+    /*
+    public static boolean isMatch(String s, String p) {
+
+        if (s == null || p == null) {
+            return false;
+        }
+        boolean[][] dp = new boolean[s.length()+1][p.length()+1];
+        dp[0][0] = true;
+        for (int i = 0; i < p.length(); i++) {
+            if (p.charAt(i) == '*' && dp[0][i-1]) {
+                dp[0][i+1] = true;
+            }
+        }
+        for (int i = 0 ; i < s.length(); i++) {
+            for (int j = 0; j < p.length(); j++) {
+                if (p.charAt(j) == '.') {
+                    dp[i+1][j+1] = dp[i][j];
+                }
+                if (p.charAt(j) == s.charAt(i)) {
+                    dp[i+1][j+1] = dp[i][j];
+                }
+                if (p.charAt(j) == '*') {
+                    if (p.charAt(j-1) != s.charAt(i) && p.charAt(j-1) != '.') {
+                        dp[i+1][j+1] = dp[i+1][j-1];
+                    } else {
+                        dp[i+1][j+1] = (dp[i+1][j] || dp[i][j+1] || dp[i+1][j-1]);
+                    }
+                }
+            }
+        }
+        return dp[s.length()][p.length()];
+    }
+    */
     public static boolean isMatch(String s, String p) {
         int[][] dp = new int[s.length() + 1][p.length() + 1];
         int result = 0;
@@ -11,8 +44,9 @@ public class WildcardMatchingII {
         if(result == s.length()) return true;
         else return false;
     }
-
+    public static int num = 0;
     private static int help(String s, String p, int[][] dp, int len1, int len2) {
+        num++;
         if(dp[len1][len2] != 0) return dp[len1][len2];
         if(len1 == 0 && len2 == 0) return 0;
         else if(len1 == 0) {
@@ -53,8 +87,9 @@ public class WildcardMatchingII {
     }
 
     public static void main(String[] args) {
-        String s = "aaaa";
-        String p = "ab*a*c*aa";
+        String s = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        String p = "aaa*aaaaaaaaaaaaaaaaaaaaaaaaaaaa";
         System.out.println(WildcardMatchingII.isMatch(s, p));
+        System.out.println(WildcardMatchingII.num);
     }
 }
