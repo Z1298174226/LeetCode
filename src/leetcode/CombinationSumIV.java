@@ -36,8 +36,8 @@ public class CombinationSumIV {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 50};
-        List<List<Integer>> lists = CombinationSumIV.combinationSum4(nums, 200);
+        int[] nums = new int[]{1, 2, 3, 4};
+        List<List<Integer>> lists = CombinationSumIV.combinationSum4(nums, 16);
         for(List<Integer> list : lists) {
             for(int i : list)
                 System.out.print(String.format("%3d", i));

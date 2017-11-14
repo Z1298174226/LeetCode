@@ -34,8 +34,8 @@ public class CombinationSumII {
         return lists;
     }
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 1};
-        List<List<Integer>> lists = CombinationSumII.combinationSum2(nums, 1);
+        int[] nums = new int[]{1, 1, 3, 5, 6, 7, 4, 8, 9};
+        List<List<Integer>> lists = CombinationSumII.combinationSum2(nums, 17);
         for(List<Integer> list : lists) {
             for(int i : list)
                 System.out.print(String.format("%3d", i));
