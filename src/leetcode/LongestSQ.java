@@ -4,6 +4,7 @@ package leetcode;
  * Created by qtfs on 2017/11/1.
  */
 public class LongestSQ {
+    //程序都有很不严密的地方
     public static int findLongestSQ(int[] Q) {
         int[] B = new int[Q.length];
         int len = 1;
