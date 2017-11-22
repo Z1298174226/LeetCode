@@ -44,9 +44,8 @@ public class WildcardMatchingII {
         if(result == s.length()) return true;
         else return false;
     }
-    public static int num = 0;
+
     private static int help(String s, String p, int[][] dp, int len1, int len2) {
-        num++;
         if(dp[len1][len2] != 0) return dp[len1][len2];
         if(len1 == 0 && len2 == 0) return 0;
         else if(len1 == 0) {
@@ -90,6 +89,5 @@ public class WildcardMatchingII {
         String s = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
         String p = "aaa*aaaaaaaaaaaaaaaaaaaaaaaaaaaa";
         System.out.println(WildcardMatchingII.isMatch(s, p));
-        System.out.println(WildcardMatchingII.num);
     }
 }

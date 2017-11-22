@@ -6,7 +6,7 @@ package leetcode;
 public class LongestValidParentheses {
     public static int longestValidParentheses(String s) {
         int[][] dp = new int[s.length() + 1][s.length() + 1];
-        return 2 * longestHelp(s, dp, s.length(), s.length());
+        return  longestHelp(s, dp, s.length(), s.length());
     }
 
     private static int longestHelp(String s, int[][] dp, int len_1, int len_2) {

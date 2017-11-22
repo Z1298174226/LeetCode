@@ -24,7 +24,6 @@ public class DPStock {
         max = Math.max(max, 0);
         return max;
     }
-
     public static void main(String[] args) {
         Random rand = new Random();
         int days = 10000;
@@ -33,6 +32,6 @@ public class DPStock {
             prices[i] = rand.nextInt(200);
         }
 
-        System.out.println(DPStock.compute(prices, 2));
+        System.out.println(compute(prices, 2));
     }
 }
