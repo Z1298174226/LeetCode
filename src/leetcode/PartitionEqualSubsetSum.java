@@ -1,12 +1,11 @@
 package leetcode;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 /**
  * Created by qtfs on 2017/11/18.
  */
-public class SubarraySumEqualsK {
+public class PartitionEqualSubsetSum {
     public static int subarraySum(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<Integer, Integer>();
         int result = 0; int resultSum = 0;
@@ -28,6 +27,6 @@ public class SubarraySumEqualsK {
  */
     public static void main(String[] args) {
         int[] nums = new int[]{-19,-82,-70,-46,-29,7,15,-72,-7,100,303};
-        System.out.println(SubarraySumEqualsK.subarraySum(nums, 100));
+        System.out.println(PartitionEqualSubsetSum.subarraySum(nums, 100));
     }
 }

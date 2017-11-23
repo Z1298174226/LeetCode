@@ -1,62 +1,57 @@
 package leetcode;
 
+import java.util.Arrays;
+
 /**
- * Created by qtfs on 2017/11/22.
+ * Created by qtfs on 2017/11/23.
  */
 public class PartitiontoKEqualSumSubsets {
-/*
-public boolean canPartition(int[] nums) {
-        // check edge case
-        if (nums == null || nums.length == 0) {
-            return true;
-        }
-        // preprocess
-        int volumn = 0;
-        for (int num : nums) {
-            volumn += num;
-        }
-        if (volumn % 2 != 0) {
-            return false;
-        }
-        volumn /= 2;
-        // dp def
-        boolean[] dp = new boolean[volumn + 1];
-        // dp init
-        dp[0] = true;
-        // dp transition
-        for (int i = 1; i <= nums.length; i++) {
-            for (int j = volumn; j >= nums[i-1]; j--) {
-                dp[j] = dp[j] || dp[j - nums[i-1]];
+    //k=2(典型01背包问题）
+    public static boolean canPartitionKSubsets(int[] nums) {
+        int sum = 0;
+        for(int num : nums)
+            sum += num;
+        if(sum % 2 != 0) return false;
+        sum /= 2;
+        int[] dp = new int[sum + 1];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        dp[0] = 0;
+        for(int i = 0; i < nums.length; i++) {
+            for(int j = sum; j >= nums[i]; j--) {
+                dp[j] = Math.min(dp[j], dp[j - nums[i]]);
             }
         }
-        return dp[volumn];
+        return dp[sum] < 10000000;
     }
- */
-    //backtracking
+    //k > 2
     public static boolean canPartitionKSubsets(int[] nums, int k) {
         int sum = 0;
-        for(int num:nums)sum += num;
-        if(k <= 0 || sum%k != 0)return false;
-        int[] visited = new int[nums.length];
-        return canPartition(nums, visited, 0, k, 0, 0, sum/k);
+        for(int num : nums)
+            sum += num;
+        if(sum % k != 0) return false;
+        sum /= k;
+        boolean[] marked = new boolean[nums.length];
+        return canPartition(nums, marked, k, 0, 0, 0, sum);
     }
 
-    public static boolean canPartition(int[] nums, int[] visited, int start_index, int k, int cur_sum, int cur_num, int target){
-        if(k==1)return true;
-        if(cur_sum == target && cur_num>0)return canPartition(nums, visited, 0, k-1, 0, 0, target);
-        for(int i = start_index; i<nums.length; i++){
-            if(visited[i] == 0){
-                visited[i] = 1;
-                if(canPartition(nums, visited, i+1, k, cur_sum + nums[i], cur_num++, target))return true;
-                visited[i] = 0;
+    private static boolean canPartition(int[] nums, boolean[] marked, int k, int start_index, int cur_sum, int cur_num, int target) {
+        if(k == 1) return true;
+        if(cur_sum == target && cur_num > 0) return canPartition(nums, marked, k - 1, 0, 0, 0, target);
+        for(int i = start_index; i < nums.length; i++) {
+            if(!marked[i]) {
+                marked[i] = true;
+                if(canPartition(nums, marked, k, i + 1, cur_sum + nums[i], cur_num++, target))
+                    return true;
+                marked[i] = false;
             }
         }
         return false;
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 5, 11, 5};
-        System.out.println(canPartitionKSubsets(nums, 2));
+        int[] nums = new int[]{4, 3, 2, 3, 5, 2, 1};
+        System.out.println(PartitiontoKEqualSumSubsets.canPartitionKSubsets(nums, 4));
+        int[] nums_1 = new int[]{9, 2, 11, 34, 22, 12};
+        System.out.println(PartitiontoKEqualSumSubsets.canPartitionKSubsets(nums_1));
     }
-
 }
