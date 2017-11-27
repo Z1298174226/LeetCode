@@ -30,7 +30,7 @@ public class RemoveLinkedListElements {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 2, 3, 5, 2, 3, 2, 3, 6, 7, 11 , 33, 55 ,22, 56, 23};
+        int[] nums = new int[]{2, 1, 2, 3, 5, 2, 3, 2, 3, 6, 7, 11 , 33, 55 ,22, 2, 56, 23};
         ListNode head = new ListNode(nums[0]);
         ListNode node = head;
         for(int i = 1; i < nums.length; i++) {
