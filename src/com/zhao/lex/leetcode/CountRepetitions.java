@@ -57,8 +57,8 @@ public class CountRepetitions {
                     }
                 }
             }
-            if(repTime > n1)
-                return repTime / n2;
+//            if(repTime > n1)
+//                return repTime / n2;
             for(k = 0; k < count; k++) {
                 if(remains[k] == index)
                     break;
@@ -68,7 +68,8 @@ public class CountRepetitions {
         }
         int interval = count - k;
         int repeat = (n1 - k) / interval * (reps[count] - reps[k]);
-        int remain = reps[(n1 - k) % interval + k];
+        //int remain = reps[(n1 - k) % interval + k];
+        int remain = reps[(n1 - k) % interval] + reps[k];
         return (repeat + remain) / n2;
     }
     public static void main(String[] args) {

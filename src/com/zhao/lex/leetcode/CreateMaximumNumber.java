@@ -13,6 +13,7 @@ public class CreateMaximumNumber {
             if(isLarger(current, 0, result, 0))
                 result = current;
          }
+
         return result;
     }
 
@@ -58,8 +59,8 @@ public class CreateMaximumNumber {
     }
 
     public static void main(String[] args) {
-        int[] nums1 = new int[]{6, 7};
-        int[] nums2 = new int[]{6, 0, 4};
+        int[] nums1 = new int[]{6, 7, 9, 1, 3};
+        int[] nums2 = new int[]{6, 0, 4                                                                              };
         for(int i : CreateMaximumNumber.maxNumber(nums1, nums2, 5))
             System.out.print(" " + i);
     }
