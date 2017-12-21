@@ -35,9 +35,23 @@ public class CombinationSumIV {
         return lists;
     }
 
+    public static int combinationSum(int[] nums, int target) {
+        Arrays.sort(nums);
+        int[] comb = new int[target + 1];
+        comb[0] = 1;
+        for (int i = 1; i < comb.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                if(i < nums[j]) break;
+                else if(i == nums[j]) comb[i] += 1;
+                else comb[i] += comb[i-nums[j]];
+            }
+        }
+        return comb[target];
+    }
+
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 2, 3, 4};
-        List<List<Integer>> lists = CombinationSumIV.combinationSum4(nums, 16);
+        int[] nums = new int[]{1, 2, 3};
+        List<List<Integer>> lists = CombinationSumIV.combinationSum4(nums, 4);
         for(List<Integer> list : lists) {
             for(int i : list)
                 System.out.print(String.format("%3d", i));
