@@ -90,7 +90,7 @@ public class SplitArrayLargestSum {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{43, 24, 56, 1, 34, 7, 9, 16, 25, 35, 67};
+        int[] nums = new int[]{43, 24, 56, 1, 34, 7, 9, 16, 25, 35, 67, 102};
         System.out.println(SplitArrayLargestSum.splitArray(nums, 4));
     }
 
