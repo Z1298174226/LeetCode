@@ -7,15 +7,14 @@ import java.util.List;
  * Created by qtfs on 2017/11/5.
  */
 public class NQueue {
-    public class Solution {
-        int[] sol;
-        public List<List<String>> solveNQueens(int n) {
+        private static int[] sol;
+        public static List<List<String>> solveNQueens(int n) {
             sol = new int[n];
             List<List<String>> res = new ArrayList();
             DFS(res, n, 0, 0, 0, 0);
             return res;
         }
-        private void DFS(List<List<String>> res, int N, int row, int col, int d1, int d2) {
+        private static void DFS(List<List<String>> res, int N, int row, int col, int d1, int d2) {
             int avl = ((1 << N) - 1) & ~(col | d1 | d2);     //availalbe positions, bitmask
             while (avl != 0) {
                 int p = avl & -avl;
@@ -26,8 +25,8 @@ public class NQueue {
                     for (int i = 0; i < N; i++) {
                         StringBuilder sb = new StringBuilder();
                         for (int c = 0; c < N; c++) {
-                            if ((1 << c) == sol[i]) sb.append("Q");
-                            else sb.append(".");
+                            if ((1 << c) == sol[i]) sb.append(" Q ");
+                            else sb.append(" . ");
                         }
                         list.add(sb.toString());
                     }
@@ -37,8 +36,12 @@ public class NQueue {
                 }
             }
         }
-    }
     public static void main(String[] args) {
-
+        for(List<String> list : solveNQueens(12)) {
+            for(String s : list) {
+                System.out.println(s);
+            }
+            System.out.println();
+        }
     }
 }
