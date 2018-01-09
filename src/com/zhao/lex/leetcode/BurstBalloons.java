@@ -24,6 +24,7 @@ public class BurstBalloons {
         return ans;
     }
 
+
     public static void main(String[] args) {
         int[] nums = new int[]{3, 1, 5, 8};
         System.out.println(BurstBalloons.maxCoins(nums));

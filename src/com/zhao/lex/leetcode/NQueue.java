@@ -37,7 +37,7 @@ public class NQueue {
             }
         }
     public static void main(String[] args) {
-        for(List<String> list : solveNQueens(12)) {
+        for(List<String> list : solveNQueens(4)) {
             for(String s : list) {
                 System.out.println(s);
             }

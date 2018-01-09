@@ -19,7 +19,7 @@ public class WordSearch {
         if(start > word.length() - 1) return true;
         if(row < 0 || row >= board.length || col < 0 || col >= board[0].length) return false;
         if(board[row][col] == word.charAt(start)) {
-            board[row][col] ^= 256;   //我实在没想到可以这么操作，很强势
+            board[row][col] ^= 256;
             boolean temp = false;
             for(int[] dir : dirs) {
                 int newRow = row + dir[0];

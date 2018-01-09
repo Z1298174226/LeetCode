@@ -55,9 +55,10 @@ public class SplitArrayLargestSum {
         return dp[0];
     }
 */
+/*
     public static int splitArray(int[] nums, int m) {
         int max = 0; long sum = 0;
-        for (int num : nums) {
+            for (int num : nums) {
             max = Math.max(num, max);
             sum += num;
         }
@@ -88,6 +89,42 @@ public class SplitArrayLargestSum {
         }
         return true;
     }
+    */
+
+    public static int splitArray(int[] nums, int m) {
+        int sum = 0;
+        int max = Integer.MIN_VALUE;
+        for(int num : nums) {
+            sum += num;
+            max = Math.max(max, num);
+        }
+        if(m == 1) return sum;
+        int right = sum; int left = max;
+        while(left < right) {
+            int mid = (right - left) / 2 + left;
+            if(help(mid, nums, m))
+                right = mid;
+            else
+                left = mid + 1;
+        }
+        return left;
+    }
+
+    private static boolean help(int target, int[] nums, int m) {
+        int sum = 0;
+        int count = 1;
+        for(int num : nums) {
+            sum += num;
+            if(sum > target) {
+                sum = num;
+                count++;
+                if(count > m)
+                    return false;
+            }
+        }
+        return true;
+    }
+
 
     public static void main(String[] args) {
         int[] nums = new int[]{43, 24, 56, 1, 34, 7, 9, 16, 25, 35, 67, 102};
