@@ -39,9 +39,11 @@ public class RemoveNthNodeFromEndofList {
     public static ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode rightNode = head;
         ListNode leftNode = head;
-        for(int i = 1; i <= n; i++) {
+        for(int i = 0; i < n; i++) {
             if (rightNode != null)
                 rightNode = rightNode.next;
+            else
+                throw new IllegalArgumentException("The list is not enough long!");
         }
         if(rightNode == null)
             return leftNode.next;
@@ -54,14 +56,15 @@ public class RemoveNthNodeFromEndofList {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 2, 3, 5, 2, 3, 2, 3, 6, 7, 11 , 33, 55 ,22, 56, 23};
+       // int[] nums = new int[]{1, 2, 3, 5, 2, 3, 2, 3, 6, 7, 11 , 33, 55 ,22, 56, 23};
+        int[] nums = new int[]{1, 2};
         ListNode head = new ListNode(nums[0]);
         ListNode node = head;
         for(int i = 1; i < nums.length; i++) {
             node.next = new ListNode(nums[i]);
             node = node.next;
         }
-        for(ListNode e : iterator(removeNthFromEnd(head, 6)))
+        for(ListNode e : iterator(removeNthFromEnd(head, 4)))
             System.out.print(e.val + (e.next != null ? " -> " : ""));
     }
 }

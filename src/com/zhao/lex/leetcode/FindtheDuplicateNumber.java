@@ -8,8 +8,8 @@ public class FindtheDuplicateNumber {
         int n = nums.length;
         for(int i = 0; i < nums.length; i++)
             nums[i]--;
-        int slow = n-1;
-        int fast = n-1;
+        int slow = n - 1;
+        int fast = n - 1;
         do{
             slow = nums[slow];
             fast = nums[nums[fast]];

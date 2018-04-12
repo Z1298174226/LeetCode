@@ -29,8 +29,8 @@ public class WildcardMatchingIV {
         return dp[s.length()][p.length()];
     }
     public static void main(String[] args) {
-        String s = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-        String p = "aaa*aaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        String s = "ab";
+        String p = ".*";
         System.out.println(WildcardMatchingIV.isMatch(s, p));
         System.out.println(WildcardMatchingIV.num);
     }

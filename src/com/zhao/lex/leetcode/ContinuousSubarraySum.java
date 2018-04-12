@@ -40,13 +40,9 @@ public class ContinuousSubarraySum {
     */
 
     public static void main(String[] args) {
-        int[] nums = new int[]{4,10,7,1,5,5,2,5,1,3,5,7,5,8,1,0,3,5,5,9,0,8,4,3,8,9,6,1,5,3,0,9,0,8,6,5,2,3,3,1,3,};
+        int[] nums = new int[]{4,10,7,1,5,5,2,5,1,3,5,7,5,8,1,0,3,5,5,9,0,8,4,3,8,9,6,1,5,3,0,9,0,8,6,5,2,3,3,1,3};
         int result = 0;
-        System.out.println(nums.length);
-        for(int num : nums)
-            result += num;
-        System.out.println(result);
-        System.out.println(ContinuousSubarraySum.checkSubarraySum(nums, 7558399));
+        System.out.println(ContinuousSubarraySum.checkSubarraySum(nums, 23));
     }
 }
 

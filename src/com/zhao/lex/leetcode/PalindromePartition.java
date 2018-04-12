@@ -21,7 +21,7 @@ public class PalindromePartition {
     }
 
     public static void main(String[] args) {
-        String s = "aabcccccccc";
+        String s = "aabcccccccczhaoxudong";
         System.out.println(PalindromePartition.minCutStep(s));
     }
 }

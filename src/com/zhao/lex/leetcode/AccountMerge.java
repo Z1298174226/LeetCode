@@ -47,7 +47,7 @@ public class AccountMerge {
     }
 
     public static class Test {
-        public static void main(String[] args) {
+        public static void main(String[] args) throws Exception {
             List<String> list_1 = new ArrayList<String>();
             List<String> list_2 = new ArrayList<String>();
             List<String> list_3 = new ArrayList<String>();

@@ -22,23 +22,23 @@ public class TwinsLockDemo {
                     latch.await();
                 } catch (InterruptedException ex) {
                 }
-                Runnable subTask = new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            latch.await();
-                        }catch(InterruptedException ex) {
-                        }
-                        lock.lock();
-                        try {
-                            System.out.println(Thread.currentThread().getName());
-                            TimeUnit.SECONDS.sleep(1);
-                        } catch(InterruptedException ex) {}
-                        finally {
-                            lock.unlock();
-                        }
-                    }
-                };
+//                Runnable subTask = new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        try {
+//                            latch.await();
+//                        }catch(InterruptedException ex) {
+//                        }
+//                        lock.lock();
+//                        try {
+//                            System.out.println(Thread.currentThread().getName());
+//                            TimeUnit.SECONDS.sleep(1);
+//                        } catch(InterruptedException ex) {}
+//                        finally {
+//                            lock.unlock();
+//                        }
+//                    }
+//                };
                 lock.lock();
                 try {
                     System.out.println(Thread.currentThread().getName());
