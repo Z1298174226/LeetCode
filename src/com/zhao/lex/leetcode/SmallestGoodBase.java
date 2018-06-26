@@ -1,10 +1,14 @@
 package com.zhao.lex.leetcode;
 
+import java.math.BigInteger;
+
 /**
  * Created by qtfs on 2017/12/21.
  */
 public class SmallestGoodBase {
-    public static String smallestGoodBase(int num) {
+    /*
+    public static String smallestGoodBase(String n) {
+        int num = Integer.valueOf(n);
         int result = 0;
         int i = (int) (Math.log((double) num) / Math.log(2.0));
         for(int j = i; j >= 2; j--) {
@@ -21,8 +25,34 @@ public class SmallestGoodBase {
         }
         return String.valueOf(num - 1);
     }
+    */
+    public static String smallestGoodBase(String nn) {
+        long n = Long.parseLong(nn);
+        long res = 0;
+        for(int k = 60; k >= 2; k--){
+            long s = 2, e = n;
+            while(s < e){
+                long m = s + (e - s) / 2;
+                BigInteger left = BigInteger.valueOf(m);
+                left = left.pow(k).subtract(BigInteger.ONE);
+                BigInteger right = BigInteger.valueOf(n).multiply(BigInteger.valueOf(m).subtract(BigInteger.ONE));
+                int cmr = left.compareTo(right);
+                if(cmr == 0){
+                    res =  m;
+                    break;
+                } else if(cmr < 0){
+                    s = m + 1;
+                } else {
+                    e = m;
+                }
+            }
+
+            if(res != 0) break;
+        }
+        return "" + res;
+    }
 
     public static void main(String[] args) {
-        System.out.println(smallestGoodBase(341));
+        System.out.println(smallestGoodBase("4681"));
     }
 }
