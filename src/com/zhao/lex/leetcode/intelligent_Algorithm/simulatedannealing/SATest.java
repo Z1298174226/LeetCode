@@ -1,4 +1,4 @@
-package com.zhao.lex.leetcode.ml;
+package com.zhao.lex.leetcode.intelligent_Algorithm.simulatedannealing;
 
 import java.util.Scanner;
 /**
