@@ -1,4 +1,4 @@
-package com.zhao.lex.leetcode.baidu;
+package com.zhao.lex.leetcode.javaBasic;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;

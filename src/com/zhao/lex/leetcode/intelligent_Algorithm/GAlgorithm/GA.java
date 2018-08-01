@@ -151,7 +151,7 @@ public class GA {
 
             }
         }
-        averageFitness[g] = sum/N;
+        averageFitness[g] = sum / N;
 
         System.out.println("The average fitness in "+g+ " generation is: "+averageFitness[g]+ ", and the best fitness is: "+ bestFitness);
         for (int i = 0; i < N; i++) {

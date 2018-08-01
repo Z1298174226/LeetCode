@@ -1,4 +1,4 @@
-package com.zhao.lex.leetcode.baidu;
+package com.zhao.lex.leetcode.javaBasic;
 
 /**
  * Created by qtfs on 2018/6/12.

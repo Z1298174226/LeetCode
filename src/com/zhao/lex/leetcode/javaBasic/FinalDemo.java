@@ -1,4 +1,4 @@
-package com.zhao.lex.leetcode.concurrent;
+package com.zhao.lex.leetcode.javaBasic;
 
 /**
  * Created by qtfs on 2018/3/28.

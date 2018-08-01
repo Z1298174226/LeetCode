@@ -1,4 +1,4 @@
-package com.zhao.lex.leetcode.intelligent_Algorithm.aca;
+package com.zhao.lex.leetcode.intelligent_Algorithm.aco;
 
 /**
  * Created by qtfs on 2018/7/3.
@@ -254,7 +254,7 @@ public class ACO {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        ACO aco = new ACO(48, 100, 100, 1.f, 5.f, 0.1f);
+        ACO aco = new ACO(48, 200, 1000, 1.f, 5.f, 0.1f);
         aco.init("src\\com\\zhao\\lex\\leetcode\\intelligent_Algorithm\\GAlgorithm\\data.txt");
         aco.solve();
     }

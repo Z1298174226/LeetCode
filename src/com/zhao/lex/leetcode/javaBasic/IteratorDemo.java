@@ -1,4 +1,4 @@
-package com.zhao.lex.leetcode.microsoft;
+package com.zhao.lex.leetcode.javaBasic;
 
 /**
  * Created by qtfs on 2018/4/4.
