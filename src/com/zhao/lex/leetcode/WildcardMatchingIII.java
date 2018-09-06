@@ -24,8 +24,8 @@ public class WildcardMatchingIII {
     }
 
     public static void main(String[] args) {
-         String s = "abefcdgiescdfi";   //"abefcdgiescdfimde"
-         String p = "ab*cd?i";
+        String s = "adceb";
+        String p = "*a*b";
       //  String s = "aa";
        // String p = "?**********";
         System.out.println(WildcardMatchingIII.isMatch(s, p));

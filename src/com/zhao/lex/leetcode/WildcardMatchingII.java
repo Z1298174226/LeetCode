@@ -86,8 +86,8 @@ public class WildcardMatchingII {
     }
 
     public static void main(String[] args) {
-        String s = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-        String p = "aaa*aaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        String s = "adfdfsfdf";
+        String p = "*a*f";
         System.out.println(WildcardMatchingII.isMatch(s, p));
     }
 }

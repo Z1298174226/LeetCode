@@ -14,16 +14,16 @@ public class FindtheDuplicateNumber {
             slow = nums[slow];
             fast = nums[nums[fast]];
         }while(slow != fast);
-        slow = n-1;
+        slow = n - 1;
         while(slow != fast){
             slow = nums[slow];
             fast = nums[fast];
         }
-        return slow+1;
+        return slow + 1;
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{3, 3, 1, 2, 3, 3};
+        int[] nums = new int[]{1, 2, 3, 4, 5, 6, 5};
         System.out.println(findDuplicate(nums));
     }
 }

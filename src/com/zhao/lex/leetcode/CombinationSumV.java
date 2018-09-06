@@ -11,7 +11,7 @@ public class CombinationSumV {
         List<List<Integer>> lists = new ArrayList<List<Integer>>();
         List<Integer> list = new ArrayList<Integer>();
         dfs(lists, list, 0, target, combinations);
-        System.out.println();
+        System.out.println(lists);
         return lists;
     }
 
@@ -23,7 +23,7 @@ public class CombinationSumV {
         else {
             for(int i = index; i < combinations.length; i++) {
                 int value = combinations[i];
-                list.add(combinations[i]);
+                list.add(value);
                 dfs(lists, list, i + 1, target - value, combinations);
                 list.remove(list.size() - 1);
             }
@@ -33,7 +33,6 @@ public class CombinationSumV {
     public static void main(String[] args) {
         int[] combination = new int[]{2, 3, 6, 7};
         combinationSum3(9, combination);
-        System.out.println();
     }
 
 }

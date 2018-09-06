@@ -76,7 +76,8 @@ public class WordBreak {
 
     public static List<String> wordBreak(String s, List<String> wordDict) {
         Map<String, List<String>> map = new HashMap<String, List<String>>();
-        return dfs(s, wordDict, map);
+        List<String> list = dfs(s, wordDict, map);
+        return list;
     }
     private static List<String> dfs(String s, List<String> wordDict, Map<String, List<String>> map) {
         if(map.containsKey(s)) {
@@ -100,6 +101,6 @@ public class WordBreak {
     public static void main(String[] args) {
         List<String> list = new ArrayList<String>();
         list.add("cat"); list.add("cats"); list.add("and"); list.add("sand");list.add("dog");list.add("t");
-        System.out.println(WordBreak.wordBreak("catsanddog", list));
+        System.out.println(WordBreak.wordBreak("anddogs", list));
     }
 }

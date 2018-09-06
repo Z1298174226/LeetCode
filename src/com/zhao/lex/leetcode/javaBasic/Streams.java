@@ -1,4 +1,4 @@
-package com.zhao.lex.leetcode.microsoft;
+package com.zhao.lex.leetcode.javaBasic;
 
 import java.util.Arrays;
 import java.util.Collection;

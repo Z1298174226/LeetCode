@@ -57,7 +57,7 @@ public class DistinctSubsequences {
         return mem[T.length()][S.length()];
     }
     public static void main(String[] args) {
-        String s = "rabbbit";
+        String s = "rabbbbbbbbbbbbbbit";
         String t = "rabbit";
         System.out.println(DistinctSubsequences.numDistinct(s, t));
     }

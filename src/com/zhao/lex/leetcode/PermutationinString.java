@@ -23,8 +23,8 @@ public class PermutationinString {
     }
 
     public static void main(String[] args) {
-        String s1 = "adc";
-        String s2 = "dcda";
+        String s1 = "adec";
+        String s2 = "edadc";
         System.out.println(PermutationinString.checkInclusion(s1, s2));
     }
 }

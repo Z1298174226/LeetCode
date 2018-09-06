@@ -1,12 +1,9 @@
-package com.zhao.lex.leetcode.microsoft;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
+package com.zhao.lex.leetcode.javaBasic;
 
 /**
  * Created by qtfs on 2018/4/10.
  */
-public class TestNum {
+public class ThreadLocalDemo {
 //     ①通过匿名内部类覆盖ThreadLocal的initialValue()方法，指定初始值
     private static ThreadLocal<Integer> seqNum = new ThreadLocal<Integer>() {
         public Integer initialValue() {
@@ -21,7 +18,7 @@ public class TestNum {
     }
 
     public static void main(String[] args) {
-        TestNum sn = new TestNum();
+        ThreadLocalDemo sn = new ThreadLocalDemo();
         // ③ 3个线程共享sn，各自产生序列号
         TestClient t1 = new TestClient(sn);
         TestClient t2 = new TestClient(sn);
@@ -32,9 +29,9 @@ public class TestNum {
     }
 
     private static class TestClient extends Thread {
-        private TestNum sn;
+        private ThreadLocalDemo sn;
 
-        public TestClient(TestNum sn) {
+        public TestClient(ThreadLocalDemo sn) {
             this.sn = sn;
         }
 
