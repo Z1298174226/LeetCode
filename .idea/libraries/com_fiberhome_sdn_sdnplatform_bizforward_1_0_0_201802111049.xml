@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="com.fiberhome.sdn.sdnplatform.bizforward_1.0.0.201802111049">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../SDON/SDON/plugins/com.fiberhome.sdn.sdnplatform.bizforward_1.0.0.201802111049.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
