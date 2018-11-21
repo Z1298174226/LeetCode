@@ -39,7 +39,8 @@ public class ReflectionDemo {
             }
         };
 
-        Object object = classLoader.loadClass("com.zhao.lex.leetcod.gc.ReflectionDemo").newInstance();
+        Object object = classLoader.loadClass("com.zhao.lex.leetcode.javaBasic.ReflectionDemo").newInstance();
+        System.out.println(object.getClass().getClassLoader());
         System.out.println(object instanceof ReflectionDemo);
     }
     public void func() {

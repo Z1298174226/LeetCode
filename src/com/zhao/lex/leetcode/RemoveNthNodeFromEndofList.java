@@ -55,15 +55,27 @@ public class RemoveNthNodeFromEndofList {
         return head;
     }
 
-    public static void main(String[] args) {
-       // int[] nums = new int[]{1, 2, 3, 5, 2, 3, 2, 3, 6, 7, 11 , 33, 55 ,22, 56, 23};
-        int[] nums = new int[]{1, 2};
+    class demo implements Cloneable {
+        @Override
+        public Object clone() throws CloneNotSupportedException {
+            return super.clone();
+        }
+    }
+
+    public static void main(String[] args) throws CloneNotSupportedException {
+        int[] nums = new int[]{1, 2, 3, 5, 2, 3, 2, 3, 6, 7, 11 , 33, 55 ,22, 56, 23};
+        //int[] nums = new int[]{1, 2};
         ListNode head = new ListNode(nums[0]);
         ListNode node = head;
         for(int i = 1; i < nums.length; i++) {
             node.next = new ListNode(nums[i]);
             node = node.next;
         }
+
+        demo d = new RemoveNthNodeFromEndofList().new demo();
+        demo dd = (demo) d.clone();
+        System.out.println(d);
+        System.out.println(dd);
         for(ListNode e : iterator(removeNthFromEnd(head, 4)))
             System.out.print(e.val + (e.next != null ? " -> " : ""));
     }

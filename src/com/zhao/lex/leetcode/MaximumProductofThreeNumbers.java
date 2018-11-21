@@ -34,7 +34,6 @@ public class MaximumProductofThreeNumbers {
     public static int maximumProduct(int[] nums) {
         int max1 = Integer.MIN_VALUE; int max2 = Integer.MIN_VALUE; int max3 = Integer.MIN_VALUE; int min1 = Integer.MAX_VALUE; int min2 = Integer.MAX_VALUE;
        // int max1 = nums[0]; int max2 = nums[0]; int max3 = nums[0]; int min1 = nums[0]; int min2 = nums[0];
-        int result = Integer.MIN_VALUE;
         for(int i = 0; i < nums.length; i++) {
             if(nums[i] > max1) {
                 max3 = max2;
@@ -59,7 +58,7 @@ public class MaximumProductofThreeNumbers {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{-1, -2, -3};
+        int[] nums = new int[]{-1, -2, -3, -8};
         System.out.println(MaximumProductofThreeNumbers.maximumProduct(nums));
     }
 }

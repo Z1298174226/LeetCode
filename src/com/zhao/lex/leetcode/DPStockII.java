@@ -53,6 +53,22 @@ public class DPStockII {
         return t[k][len - 1];
     }
 
+    public static int maxProfitDP(int k, int[] prices) {
+        int maxProfit = 0;
+        int days = prices.length;
+        if(days == 0) return maxProfit;
+        int[][] dp = new int[k + 1][days];
+        maxProfit = -prices[0];
+        for(int i = 1; i <= k; i++) {
+            maxProfit = dp[i - 1][0] - prices[0];
+            for(int j = 0; j < days; j++) {
+                dp[i][j] = Math.max(maxProfit + prices[j], dp[i][j - 1]);
+                maxProfit = Math.max(dp[i - 1][j] - prices[j], maxProfit);
+            }
+        }
+        return maxProfit;
+    }
+
 
     private static int quickSolve(int[] prices) {
         int len = prices.length, profit = 0;

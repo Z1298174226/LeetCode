@@ -42,23 +42,59 @@ public class DistinctSubsequences {
         for(int j=0; j<=S.length(); j++) {
             mem[0][j] = 1;
         }
-
-
-        for(int i=0; i<T.length(); i++) {
-            for(int j=0; j<S.length(); j++) {
-                if(T.charAt(i) == S.charAt(j)) {
-                    mem[i+1][j+1] = mem[i][j] + mem[i+1][j];
+        for(int i = 1; i <= T.length(); i++) {
+            for(int j = 1; j <= S.length(); j++) {
+                if(T.charAt(i - 1) == S.charAt(j - 1)) {
+                    mem[i][j] = mem[i - 1][j - 1] + mem[i][j - 1];
                 } else {
-                    mem[i+1][j+1] = mem[i+1][j];
+                    mem[i][j] = mem[i][j - 1];
                 }
             }
         }
 
         return mem[T.length()][S.length()];
     }
+
+    public int distinctSubstring(String s, String t) {
+        int length1 = s.length();
+        int length2 = t.length();
+        int[][] dp = new int[length1 + 1][length2 + 1];
+        int result = 0;
+        int end = 0;
+        for(int i = 1; i <= length1; i++) {
+            for(int j = 1; j <= length2; j++) {
+                if(s.charAt(i - 1) == t.charAt(j - 1))
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                else
+                    dp[i][j] = 0;
+                if(result < dp[i][j]) {
+                    result = dp[i][j];
+                    end = i;
+                }
+            }
+        }
+        System.out.println(s.substring(end - result, end));
+        return result;
+    }
+    public int distinctSubsequence(String s, String t) {
+        int length1 = s.length();
+        int length2 = t.length();
+        int[][] dp = new int[length1 + 1][length2 + 1];
+        for(int i = 1; i <= length1; i++) {
+            for(int j = 1; j <= length2; j++) {
+                if(s.charAt(i - 1) == t.charAt(j - 1))
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                else
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+        return dp[length1][length2];
+    }
     public static void main(String[] args) {
-        String s = "rabbbbbbbbbbbbbbit";
-        String t = "rabbit";
+        String s = "zhaoyangmengqixudong";
+        String t = "zhaoxudong";
         System.out.println(DistinctSubsequences.numDistinct(s, t));
+        System.out.println(new DistinctSubsequences().distinctSubstring(s, t));
+        System.out.println(new DistinctSubsequences().distinctSubsequence(s, t));
     }
 }

@@ -11,7 +11,6 @@ public class PalindromePartitioning {
         if(s == null || s.length() == 0 || s.length() ==1) return 0;
         int length = s.length();
         boolean[][] dp = new boolean[length][length];
-        List<String> result = new ArrayList<String>();
         int[] cuts = new int[length];
         for(int i = 0; i < length; i++) {
             dp[i][i] = true;

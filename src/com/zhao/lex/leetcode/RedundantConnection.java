@@ -20,10 +20,6 @@ public class RedundantConnection {
             int parent = edge[0];
             int son = edge[1];
             if(find(parent) == find(son)) {
-                while(degreeParent[son] == 1 && degreeSon[son] == 1) {
-                    son = parent;
-                    parent = parents[son];
-                }
                 return new int[]{parent, son};
             }
             else union(son, parent);
@@ -47,13 +43,7 @@ public class RedundantConnection {
     }
 
     public static void main(String[] args) {
-        In in = new In(args[0]);
-        int num = in.readInt();
-        int[][] edges = new int[num][2];
-        for(int i = 0; i < num; i++) {
-            edges[i][0] = in.readInt();
-            edges[i][1] = in.readInt();
-        }
+        int[][] edges = new int[][]{{1, 2,}, {2, 3}, {3, 4}, {4, 1}};
 
         RedundantConnection re = new RedundantConnection();
 

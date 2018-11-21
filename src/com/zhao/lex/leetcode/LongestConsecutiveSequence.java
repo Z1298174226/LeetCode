@@ -104,7 +104,7 @@ public int longestConsecutive(int[] nums) {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{5, 2, 4, 3, 1, 1};
+        int[] nums = new int[]{1, 2, 3};
         System.out.println(new LongestConsecutiveSequence().longestConsecutive(nums));
     }
 }
