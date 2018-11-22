@@ -1,9 +1,7 @@
 package com.zhao.lex.leetcode;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 /**
  * Created by qtfs on 2018/9/5.

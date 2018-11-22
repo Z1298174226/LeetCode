@@ -1,5 +1,4 @@
 package com.zhao.lex.leetcode;
-import edu.princeton.cs.algs4.In;
 
 /**
  * Created by qtfs on 2017/10/16.

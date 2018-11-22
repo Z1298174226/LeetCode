@@ -1,8 +1,6 @@
 package com.zhao.lex.leetcode;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by qtfs on 2018/8/29.

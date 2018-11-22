@@ -1,14 +1,13 @@
 package com.zhao.lex.leetcode;
 
 
-import com.zhao.lex.leetcode.RemoveNthNodeFromEndofList.ListNode;
 /**
  * Created by qtfs on 2017/11/26.
  */
 public class PartitionList {
-    public static ListNode partition(ListNode head, int x) {
-        ListNode leftNode = head;
-        ListNode rightNode = leftNode.next;
+    public static RemoveNthNodeFromEndofList.ListNode partition(RemoveNthNodeFromEndofList.ListNode head, int x) {
+        RemoveNthNodeFromEndofList.ListNode leftNode = head;
+        RemoveNthNodeFromEndofList.ListNode rightNode = leftNode.next;
         while(rightNode != null) {
             if(leftNode.val >= x) {
                 if(rightNode.val < x) {
@@ -18,7 +17,7 @@ public class PartitionList {
                         head = rightNode;
                     }
                     else {
-                        for(ListNode node = head; node != rightNode; node = node.next) {
+                        for(RemoveNthNodeFromEndofList.ListNode node = head; node != rightNode; node = node.next) {
                             if(node.next.val >= rightNode.val) {
                                 leftNode.next = rightNode.next;
                                 rightNode.next = node.next;
@@ -59,13 +58,13 @@ public class PartitionList {
     public static void main(String[] args) {
         //int[] nums = new int[]{1, 2, 3, 5, 2, 3, 2, 3, 6, 7, 11 , 33, 55 ,22, 56, 23};
         int[] nums = new int[]{2, 3, 1};
-        ListNode head = new ListNode(nums[0]);
-        ListNode node = head;
+        RemoveNthNodeFromEndofList.ListNode head = new RemoveNthNodeFromEndofList.ListNode(nums[0]);
+        RemoveNthNodeFromEndofList.ListNode node = head;
         for(int i = 1; i < nums.length; i++) {
-            node.next = new ListNode(nums[i]);
+            node.next = new RemoveNthNodeFromEndofList.ListNode(nums[i]);
             node = node.next;
         }
-        for(ListNode e : RemoveNthNodeFromEndofList.iterator(partition(head, 3)))
+        for(RemoveNthNodeFromEndofList.ListNode e : RemoveNthNodeFromEndofList.iterator(partition(head, 3)))
             System.out.print(e.val + (e.next != null ? " -> " : ""));
     }
 }

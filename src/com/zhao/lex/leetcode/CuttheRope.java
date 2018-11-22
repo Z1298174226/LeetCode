@@ -1,7 +1,5 @@
 package com.zhao.lex.leetcode;
 
-import java.util.Arrays;
-
 /**
  * Created by qtfs on 2018/11/21.
  */

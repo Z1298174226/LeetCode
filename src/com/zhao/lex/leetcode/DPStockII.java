@@ -1,7 +1,6 @@
 package com.zhao.lex.leetcode;
 
 import java.util.Arrays;
-import java.util.Random;
 
 /**
  * Created by qtfs on 2017/10/22.
@@ -19,6 +18,7 @@ public class DPStockII {
             sellSecond = Math.max(sellSecond, price + buySecond);
         }
         return sellSecond;
+
     }
     public static int maxProfit(int k, int[] prices) {
         if(prices == null || prices.length == 0) return 0;
@@ -79,11 +79,11 @@ public class DPStockII {
     }
     public static void main(String[] args) {
         int num = 1000000;
-        int[] prices = new int[num];
-        Random rand = new Random();
-        for(int i = 0; i < num; i++) {
-            prices[i] = rand.nextInt(300);
-        }
-        System.out.println(maxProfit(1000, prices));
+        int[] prices = new int[]{3,3,5,0,0,3,1,4};
+//        Random rand = new Random();
+//        for(int i = 0; i < num; i++) {
+//            prices[i] = rand.nextInt(300);
+//        }
+        System.out.println(new DPStockII().maxProfit(prices));
     }
 }
