@@ -28,9 +28,34 @@ public class MedianofTwoSortedArrays {
             return getkth(A, aStart,       B, bStart + k/2, k - k/2);
     }
 
+    public static double findMedianSortedArraysII(int[] A, int[] B) {
+        int len1 = A.length;
+        int len2 = B.length;
+        int l = (len1 + len2 + 1) / 2;
+        int r = (len1 + len2 + 2) / 2;
+        int i = 1; int j = 1;
+        int[] num = new int[len1 + len2];
+        while(i + j <= r) {
+            if(A[i - 1] >= B[j - 1])  {
+                num[i + j - 2] = B[j - 1];
+                j++;
+            }
+            else {
+                num[i + j - 2] = A[i - 1];
+                i++;
+            }
+        }
+        if(r == l) {
+            return (double)(num[r - 1] + num[l - 1]) / 2;
+        }else {
+            return (double) num[r - 1];
+        }
+    }
+
+
     public static void main(String[] args) {
         int[] A = new int[]{2, 3, 5, 7, 8};
         int[] B = new int[]{4};
-        System.out.println(findMedianSortedArrays(A, B));
+        System.out.println(findMedianSortedArraysII(A, B));
     }
 }

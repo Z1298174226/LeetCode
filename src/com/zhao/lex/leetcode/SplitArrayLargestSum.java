@@ -1,5 +1,7 @@
 package com.zhao.lex.leetcode;
 
+import java.util.Arrays;
+
 /**
  * Created by qtfs on 2017/11/24.
  */
@@ -124,11 +126,37 @@ public class SplitArrayLargestSum {
         }
         return true;
     }
+    /*
+    DP, O(N*N*m)
+     */
+    public static int splitArrayII(int[] nums, int m) {
+        if(nums == null || nums.length == 0 || m == 0) return 0;
+        int length = nums.length;
+        int[] sum = new int[length + 1];
+        for(int i = 0; i < length; i++)
+            sum[i + 1] = sum[i] + nums[i];
+        if(m == 1) return sum[length];
+        int[][] dp = new int[length][m + 1];
+        for(int i = 0; i < length; i++)
+            Arrays.fill(dp[i], Integer.MAX_VALUE);
+        for(int i = 0; i < length; i++)
+            dp[i][1] = sum[i + 1];
+        for(int k = 2; k <= m; k++) {
+            for(int i = 0; i < length; i++) {
+                for(int j = 0; j < i; j++) {
+                    int temp = Math.max(dp[j][k - 1], sum[i + 1] - sum[j + 1]);
+                    dp[i][k] = Math.min(dp[i][k], temp);
+                }
+
+            }
+        }
+        return dp[length - 1][m];
+    }
 
 
     public static void main(String[] args) {
         int[] nums = new int[]{43, 24, 56, 1, 34, 7, 9, 16, 25, 35, 67, 102};
-        System.out.println(SplitArrayLargestSum.splitArray(nums, 4));
+        System.out.println(SplitArrayLargestSum.splitArrayII(nums, 4));
     }
 
 }

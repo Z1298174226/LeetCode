@@ -1,5 +1,7 @@
 package com.zhao.lex.javaBasic.generic;
 
+import sun.net.www.content.text.Generic;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +26,8 @@ public class GenericDemo {
         }
         System.out.println(list);
         List<? super Father> l = new ArrayList();
+        List<int[]> lists = new ArrayList<int[]>();
+        System.out.println(lists.getClass().getTypeParameters().getClass().getName());
         l.add(new GenericDemo().new Father());
         l.add(new GenericDemo().new Son());
     }

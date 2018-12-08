@@ -47,6 +47,6 @@ public class MaximumLengthofRepeatedSubarray {
     public static void main(String[] args) {
         int[] A = new int[]{0, 1, 0, 1, 0};
         int[] B = new int[]{0, 1, 1, 1, 1};
-        System.out.println(findLength(A, B));
+        System.out.println(findLengthII(A, B));
     }
 }
