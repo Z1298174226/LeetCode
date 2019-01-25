@@ -12,6 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class CASDemo {
     private AtomicInteger atomicI = new AtomicInteger(0);
     private int i = 0;
+
     public static void main(String[] args) {
         final CASDemo cas = new CASDemo();
         List<Thread> ts = new ArrayList<Thread>(600);

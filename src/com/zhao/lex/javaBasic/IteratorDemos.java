@@ -1,5 +1,8 @@
 package com.zhao.lex.javaBasic;
 
+import sun.misc.Unsafe;
+
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -13,7 +16,17 @@ public class IteratorDemos {
         list.add(1);
 //        list.add(2);
         for(int i : list) {
-            list.remove(list.size() - 1);
+//            list.remove(list.size() - 1);
+        }
+        try {
+            Field field = Unsafe.class.getDeclaredField("theUnsafe");
+            field.setAccessible(true);
+            Unsafe unsafe = (Unsafe) field.get(null);
+            System.out.println(unsafe);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
     }
 }

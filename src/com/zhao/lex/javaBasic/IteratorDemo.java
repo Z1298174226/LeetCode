@@ -14,8 +14,11 @@ output：2
 
 
 import java.time.Clock;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.ConcurrentHashMap;
+
 public class IteratorDemo {
     public static void step(int[] nums) {
         final Clock clock = Clock.systemUTC();

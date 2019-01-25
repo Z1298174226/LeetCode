@@ -51,8 +51,18 @@ public class Merge {
     public static void main(String[] args) {
         int[] array = new int[]{1, 6, 6, 4, 8};
         Merge merge = new Merge();
+//        try{
+            new Merge().function();
+//        }catch(Exception ex) {
+//           // System.out.println("zzzzzzzzzzzz");
+//        }
       //  merge.sort(array);
         merge.sortUpdate(array);
+//        new Merge().function();
         Arrays.stream(merge.aux).forEach(x -> System.out.print(x + " "));
     }
+    public void function() {
+        int x = 3 / 0;
+    }
+
 }
