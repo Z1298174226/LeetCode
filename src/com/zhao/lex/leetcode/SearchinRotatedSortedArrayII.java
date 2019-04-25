@@ -17,6 +17,7 @@ public class SearchinRotatedSortedArrayII {
             }
             else if(nums[mid] < nums[end]) {
                 if(nums[mid] > target || nums[end] < target) end = mid - 1;
+            //    if(target > nums[mid] && target < nums[end]) start = mid + 1;
                 else start = mid + 1;
             }
             else
@@ -27,6 +28,6 @@ public class SearchinRotatedSortedArrayII {
 
     public static void main(String[] args) {
         int[] nums = new int[]{2,5,6,0,0,1,2};
-        System.out.println(new SearchinRotatedSortedArrayII().search(nums, 7));
+        System.out.println(new SearchinRotatedSortedArrayII().search(nums, 6));
     }
 }

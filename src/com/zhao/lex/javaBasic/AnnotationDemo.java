@@ -40,6 +40,7 @@ public class AnnotationDemo {
             if(method.isAnnotationPresent(Test.class)) {
                 Annotation a = method.getAnnotation(Test.class);
                 a.annotationType();
+                System.out.println(a.annotationType());
             }
         }
     }

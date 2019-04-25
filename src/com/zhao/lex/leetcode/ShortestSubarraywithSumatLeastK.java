@@ -26,18 +26,20 @@ public class ShortestSubarraywithSumatLeastK {
 //        return result == Integer.MAX_VALUE ? -1 : result;
         int left = 0; int right = 0;
         int sum = 0;
+
         int length = A.length;
         int result = Integer.MAX_VALUE;
         boolean marked = false;
         while(left < length) {
             right = Math.max(left, right);
+            if(result == length) result--;
             while(right < length) {
                 if(!marked) {
                     sum += A[right];
                     right++;
                 }
                 if(sum >= K) {
-                    result = Math.min(result, right - left + 1);
+                    result = Math.min(result, right - left);
                     break;
                 }
             }

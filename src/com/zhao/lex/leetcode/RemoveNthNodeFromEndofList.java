@@ -3,6 +3,7 @@ package com.zhao.lex.leetcode;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Created by qtfs on 2017/11/25.
@@ -79,4 +80,6 @@ public class RemoveNthNodeFromEndofList {
         for(ListNode e : iterator(removeNthFromEnd(head, 4)))
             System.out.print(e.val + (e.next != null ? " -> " : ""));
     }
+
+
 }

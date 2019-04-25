@@ -3,8 +3,7 @@ package com.zhao.lex.javaBasic.generic;
 import sun.net.www.content.text.Generic;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.lang.reflect.Method;
 /**
  * Created by qtfs on 2018/11/21.
@@ -28,8 +27,12 @@ public class GenericDemo {
         List<? super Father> l = new ArrayList();
         List<int[]> lists = new ArrayList<int[]>();
         System.out.println(lists.getClass().getTypeParameters().getClass().getName());
-        l.add(new GenericDemo().new Father());
+   //     l.add(new GenericDemo().new Father());
         l.add(new GenericDemo().new Son());
+
+       Collections.sort(l, (x, y) -> {return 0;});
+
+
     }
 
     class Father{

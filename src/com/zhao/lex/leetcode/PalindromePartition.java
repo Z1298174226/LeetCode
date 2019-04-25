@@ -24,4 +24,6 @@ public class PalindromePartition {
         String s = "aaabbbaaccc";
         System.out.println(PalindromePartition.minCutStep(s));
     }
+
+
 }

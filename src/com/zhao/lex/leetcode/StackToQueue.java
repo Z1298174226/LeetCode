@@ -1,12 +1,13 @@
 package com.zhao.lex.leetcode;
 
+import java.util.Iterator;
 import java.util.Random;
 import java.util.Stack;
 
 /**
  * Created by qtfs on 2018/11/21.
  */
-public class StackToQueue{
+public class StackToQueue implements Iterable {
     Stack<Integer> stack1 = new Stack<Integer>();
     Stack<Integer> stack2 = new Stack<Integer>();
 
@@ -32,5 +33,20 @@ public class StackToQueue{
         for(int i = 0; i < 10; i++)
             queue.push(new Random().nextInt(100));
         System.out.println(queue);
+    }
+
+    @Override
+    public Iterator iterator() {
+        return new Iterator() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+
+            @Override
+            public Object next() {
+                return null;
+            }
+        };
     }
 }

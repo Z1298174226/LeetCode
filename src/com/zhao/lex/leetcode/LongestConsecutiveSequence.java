@@ -78,6 +78,7 @@ public int longestConsecutive(int[] nums) {
     Map<Integer, Integer> parents = new HashMap<Integer, Integer>();
     Map<Integer, TreeSet<Integer>> result = new HashMap<Integer, TreeSet<Integer>>();
     int length = 0;
+
     for(int num : nums)
         parents.put(num, num);
     for(int num : nums) {
@@ -86,6 +87,7 @@ public int longestConsecutive(int[] nums) {
             parents.put(num, parent);
         }
     }
+
     for(int num : nums) {
         int p = find(parents, num);
         if(!result.containsKey(p))

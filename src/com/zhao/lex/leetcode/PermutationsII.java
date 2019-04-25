@@ -11,7 +11,7 @@ public class PermutationsII {
 
     public static List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
-        if(nums==null || nums.length==0) return res;
+        if (nums == null || nums.length == 0) return res;
         boolean[] used = new boolean[nums.length];
         List<Integer> list = new ArrayList<Integer>();
         Arrays.sort(nums);
@@ -19,22 +19,23 @@ public class PermutationsII {
         return res;
     }
 
-    public static void dfs(int[] nums, boolean[] used, List<Integer> list, List<List<Integer>> res){
-        if(list.size()==nums.length){
+    public static void dfs(int[] nums, boolean[] used, List<Integer> list, List<List<Integer>> res) {
+        if (list.size() == nums.length) {
             res.add(new ArrayList<Integer>(list));
             return;
         }
-        for(int i=0;i<nums.length;i++){
-            if(used[i]) continue;
-            if(i>0 &&nums[i-1]==nums[i] && !used[i-1]) continue;
-            used[i]=true;
+        for (int i = 0; i < nums.length; i++) {
+            if (used[i]) continue;
+            if (i > 0 && nums[i - 1] == nums[i] && !used[i - 1]) continue;
+            used[i] = true;
             list.add(nums[i]);
-            dfs(nums,used,list,res);
-            used[i]=false;
-            list.remove(list.size()-1);
+            dfs(nums, used, list, res);
+            used[i] = false;
+            list.remove(list.size() - 1);
         }
     }
-//    public static List<List<Integer>> permute(int[] nums) {
+
+    //    public static List<List<Integer>> permute(int[] nums) {
 //        List<List<Integer>> lists = new ArrayList<List<Integer>>();
 //        List<Integer> list = new ArrayList<Integer>();
 //        int k = nums.length;

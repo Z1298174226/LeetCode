@@ -100,7 +100,7 @@ public class WordBreak {
     }
     public static void main(String[] args) {
         List<String> list = new ArrayList<String>();
-        list.add("cat"); list.add("cats"); list.add("and"); list.add("sand");list.add("dog");list.add("t");
+        list.add("cat"); list.add("cats"); list.add("and"); list.add("sand");list.add("dogs");list.add("t");
         System.out.println(WordBreak.wordBreak("anddogs", list));
     }
 }

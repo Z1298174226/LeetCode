@@ -97,9 +97,71 @@ public class NthUglyNumber {
         return ugly[n-1];
     }
      */
+    public static List<Integer>  nthUgly(int n) {
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(1);
+        int i1 = 0;
+        int i2 = 0;
+        int i3 = 0;
+        while(list.size() < n) {
+            int num1 = list.get(i1) * 2;
+            int num2 = list.get(i2) * 3;
+            int num3 = list.get(i3) * 5;
+            int min = Math.min(num1, Math.min(num2, num3));
+            list.add(min);
+            if(min == num1) i1++;
+            if(min == num2) i2++;
+            if(min == num3) i3++;
+        }
+        return list;
+    }
+
+    public static double Power(double base, int exponent) {
+        if(exponent >= 0)
+            return Powers(base, exponent);
+        else {
+            exponent = exponent * -1;
+            return 1 / Powers(base, exponent);
+        }
+
+    }
+
+    public static double Powers(double base, int exponent) {
+        if(exponent == 0) return 1;
+        return base * Power(base, exponent - 1);
+    }
+
+    public static int Fibonacci(int n) {
+        if(n == 0) return 1;
+        if(n == 1) return 1;
+        int one = 1;
+        int two = 1;
+        int result = 0;
+        for(int i = 2; i <= n; i++) {
+            result = one + two;
+            one = two;
+            two = result;
+        }
+        return result;
+    }
+
 
     public static void main(String[] args) {
-        for(int i = 0; i < 300; i++)
-            System.out.println(NthUglyNumber.nthUglyNumber(i));
+//        for(int i = 0; i < 300; i++)
+//            System.out.println(NthUglyNumber.nthUglyNumber(i));
+       // System.out.println(NthUglyNumber.nthUgly(100));
+        System.out.println(NthUglyNumber.Fibonacci(4));
+    }
+
+    public String replaceSpace(StringBuffer str) {
+        String strr = str.toString();
+        String[] strs = strr.split(" ");
+        StringBuilder builder = new StringBuilder();
+        for(int i = 0; i < strs.length; i++) {
+            builder.append(strs[i]);
+            if(i != strs.length - 1)
+                builder.append("%20");
+        }
+        return builder.toString();
     }
 }

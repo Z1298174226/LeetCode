@@ -1,68 +1,51 @@
 package com.zhao.lex.javaBasic.sort;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
- * Created by qtfs on 2018/12/6.
+ * Created by qtfs on 2019/3/24.
  */
 public class Merge {
     int[] aux;
 
-    public void sort(int[] array) {
-        int length = array.length;
+    public void mergeSort(int[] arr) {
+        if(arr == null || arr.length == 0) return;
+        int length = arr.length;
         aux = new int[length];
-        sort(0, length - 1, array);
+        mergeSort(arr, 0, length - 1);
     }
 
-    public void sort(int lo, int hi, int[] array) {
-        if(lo >= hi) return;
-        int mid = lo + (hi - lo) / 2;
-        sort(lo, mid, array);
-        sort(mid + 1, hi, array);
-        merge(array, lo, mid, hi);
+    private void mergeSort(int[] arr, int start, int end) {
+        if(start >= end) return;
+        int mid = start + (end - start) / 2;
+        mergeSort(arr, start, mid);
+        mergeSort(arr, mid + 1, end);
+        merge(arr, start, mid, end);
     }
 
-    public void sortUpdate(int[] array) {
-        int length = array.length;
-        aux = new int[length];
-        for(int i = 1; i < length; i = 2 * i) {
-            for(int j = 0; j < length - i; j += 2 * i)
-                merge(array, j, i + j - 1, Math.min(j + 2 * i - 1, length - 1));
+    private void merge(int[] arr, int start, int mid, int end) {
+        int i = start;
+        int j = mid + 1;
+//        for(int k = start; k <= end; k++) {
+//            aux[k] = arr[k];
+//        }
+        for(int k = start; k <= end; k++) {
+            if(i > mid) aux[k] = arr[j++];
+            else if(j > end) aux[k] = arr[i++];
+            else if(arr[i] > arr[j]) aux[k] = arr[j++];
+            else aux[k] = arr[i++];
         }
-    }
-
-    private void merge(int[] array, int lo, int mid, int hi) {
-         int i = lo;
-         int j = mid + 1;
-         for(int k = lo; k <= hi; k++)
-             aux[k] = array[k];
-         for(int k = lo; k <= hi; k++) {
-             if(i > mid) aux[k] = array[j++];
-             else if(j > hi) aux[k] = array[i++];
-             else if(less(array, i, j)) aux[k] = array[i++];
-             else aux[k] = array[j++];
-         }
-    }
-
-    private boolean less(int[] array, int i , int j) {
-        return array[i] < array[j];
+        for(int k = start; k <= end; k++)
+            arr[k] = aux[k];
     }
 
     public static void main(String[] args) {
-        int[] array = new int[]{1, 6, 6, 4, 8};
-        Merge merge = new Merge();
-//        try{
-            new Merge().function();
-//        }catch(Exception ex) {
-//           // System.out.println("zzzzzzzzzzzz");
-//        }
-      //  merge.sort(array);
-        merge.sortUpdate(array);
-//        new Merge().function();
-        Arrays.stream(merge.aux).forEach(x -> System.out.print(x + " "));
+        int[] arr = new int[100];
+        Random rand = new Random();
+        for(int i = 0; i <100; i++)
+            arr[i] = rand.nextInt(1000);
+        new Merge().mergeSort(arr);
+        Arrays.stream(arr).forEach(x -> System.out.print(x + " "));
     }
-    public void function() {
-        int x = 3 / 0;
-    }
-
 }

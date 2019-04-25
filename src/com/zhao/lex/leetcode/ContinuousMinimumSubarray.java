@@ -20,7 +20,8 @@ public class ContinuousMinimumSubarray {
                 right++;
             if(right < sumArray.length && min > sumArray[right] - sumArray[left]) {
                 min = sumArray[right] - sumArray[left];
-                result[0] = left; result[1] = right - 1;
+                result[0] = left;
+                result[1] = right - 1;
             }
             left++;
         }

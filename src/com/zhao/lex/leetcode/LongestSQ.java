@@ -78,6 +78,34 @@ public class LongestSQ {
       //  int[] Q = new int[]{1,1,3,2,5,3,7,1,1,4,6,34,54,2,67,99};
         int[] Q = new int[]{10,9,2,5,3,7,101,18};
      //   System.out.println(LongestSQ.findLongestSQ(Q));
-        System.out.println(LongestSQ.longestIncreasingSubsequence(Q));
+        System.out.println(new LongestSQ().longestSQ(Q));
     }
+
+   public int longestSQ(int[] arr) {
+        int len = arr.length;
+        int[] sq = new int[len];
+        int result = 1;
+        sq[result] = arr[0];
+        for(int i = 1; i < len; i++) {
+            int temp = helps(sq, 0, result, arr[i]);
+            sq[temp] = arr[i];
+            result = Math.max(result, temp);
+        }
+        return result;
+   }
+
+   private int helps(int[] sq, int start, int end, int num) {
+        if(sq[end] < num) {
+            end++;
+            return end;
+        }
+        while(start < end) {
+            int mid = start + (end - start) / 2;
+            if(sq[mid] <= num) start = mid + 1;
+            else end = mid;
+        }
+        return start;
+   }
+
+
 }
