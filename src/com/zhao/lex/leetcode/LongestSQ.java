@@ -74,12 +74,7 @@ public class LongestSQ {
     }
 
 
-    public static void main(String[] args) {
-      //  int[] Q = new int[]{1,1,3,2,5,3,7,1,1,4,6,34,54,2,67,99};
-        int[] Q = new int[]{10,9,2,5,3,7,101,18};
-     //   System.out.println(LongestSQ.findLongestSQ(Q));
-        System.out.println(new LongestSQ().longestSQ(Q));
-    }
+
 
    public int longestSQ(int[] arr) {
         int len = arr.length;
@@ -106,6 +101,39 @@ public class LongestSQ {
         }
         return start;
    }
+
+   public int longestIncreasingSubsequenceUpdate(int[] arr) {
+        int len = arr.length;
+        if(arr == null || arr.length == 0) return 0;
+        int[] dp = new int[len + 1];
+        int max = 1;
+        dp[max] = arr[0];
+        for(int i = 2; i < len; i++) {
+            int pos = process(dp, 1, max, arr[i]);
+            dp[pos] = arr[i];
+            max = Math.max(pos, max);
+        }
+        return max;
+   }
+
+   private int process(int[] dp, int start, int end, int val) {
+        if(dp[end] < val)
+            return ++end;
+        while(start < end) {
+            int mid = start + (end - start) / 2;
+            if(dp[mid] < val) start = mid + 1;
+            else end = mid;
+        }
+        return start;
+   }
+
+    public static void main(String[] args) {
+        //  int[] Q = new int[]{1,1,3,2,5,3,7,1,1,4,6,34,54,2,67,99};
+        int[] Q = new int[]{10,9,2,5,3,7,101,18};
+        //   System.out.println(LongestSQ.findLongestSQ(Q));
+//        System.out.println(new LongestSQ().longestSQ(Q));
+        System.out.println(new LongestSQ().longestIncreasingSubsequenceUpdate(Q));
+    }
 
 
 }

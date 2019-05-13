@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.*;
+import java.util.Queue;
 import java.util.concurrent.Executors;
 
 /**
@@ -108,6 +109,63 @@ public class PostOrder {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
         return dp[target];
+    }
+
+    public void preOrder(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode currentNode = root;
+        while(currentNode != null || !stack.isEmpty()) {
+            while(currentNode != null) {
+                System.out.println(currentNode.val);
+                stack.add(currentNode);
+                currentNode = currentNode.left;
+            }
+            if(!stack.isEmpty()) {
+                TreeNode temp = stack.pop();
+                currentNode = temp.right;
+            }
+        }
+    }
+
+    public void inOrder(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode currentNode = root;
+        while(currentNode != null || !stack.isEmpty()) {
+            while(currentNode != null) {
+                stack.add(currentNode);
+                currentNode = currentNode.left;
+            }
+            if(!stack.isEmpty()) {
+                TreeNode temp = stack.pop();
+                System.out.println(temp.val);
+                currentNode = temp.right;
+            }
+        }
+    }
+
+    public void postOrders(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode currentNode = root;
+        TreeNode lastNode = null;
+        while(currentNode != null) {
+            stack.add(currentNode);
+            currentNode = currentNode.left;
+        }
+        while(!stack.isEmpty()) {
+            TreeNode temp = stack.pop();
+            if(temp.right != null && temp.right != lastNode) {
+                currentNode = temp.right;
+                stack.add(temp);
+                while(currentNode != null) {
+                    stack.add(currentNode);
+                    currentNode = currentNode.left;
+                }
+            }
+            else {
+                System.out.println(temp.val);
+                lastNode = temp;
+            }
+        }
     }
 
 

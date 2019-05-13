@@ -84,5 +84,6 @@ public class Singleton {
         }
         Method m = clazz.getMethod("main", String[].class);
         Method s = clazz.getMethod("findSmallest", Object[].class, Integer.TYPE);
+        Method a = clazz.getMethod("findSmallest", new Class[]{Object[].class, Integer.class});
     }
 }

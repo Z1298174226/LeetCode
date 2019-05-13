@@ -37,9 +37,9 @@ public class MedianOfTwoSortedArray {
     }
 
     public static void main(String[] args) {
-        int[] arr1 = new int[]{1, 3, 5, 11, 20};
-        int[] arr2 = new int[]{2, 6, 7, 10, 12};
-        System.out.println(new MedianOfTwoSortedArray().medianOfTwoSortedArray(arr1, arr2));
+        int[] arr1 = new int[]{1, 2};
+        int[] arr2 = new int[]{3, 4, 5};
+        System.out.println(new MedianOfTwoSortedArray().findMedianSortedArrays(arr1, arr2));
     }
     class ListNode {
         int val;
@@ -72,4 +72,44 @@ public class MedianOfTwoSortedArray {
         }
         return result.next;
     }
+
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int len1 = nums1.length;
+        int len2 = nums2.length;
+        int len = len1 + len2;
+        if((len & 1) == 1)
+            return (double) findKth(nums1, len1, nums2,  len2, len / 2 + 1);
+        else {
+            System.out.println(findKth(nums1, len1, nums2, len2, len / 2));
+            System.out.println(findKth(nums1, len1, nums2, len2, len / 2 + 1));
+            return (findKth(nums1, len1, nums2, len2, len / 2) + findKth(nums1, len1, nums2, len2, len / 2 + 1)) / 2.;
+        }
+    }
+
+    public int findKth(int[] num1, int len1, int[] num2, int len2, int k) {
+        if(len1 > len2)
+            return findKth(num2, len2, num1, len1, k);
+        if(len1 == 0) {
+            return num2[k - 1];
+        }
+        if(k == 1)
+            return Math.min(num1[0], num2[0]);
+        int p = Math.min(k >>> 1, len1);
+        int q = k - p;
+        if(num1[p - 1] < num2[q - 1]) {
+            int[] num1New = new int[len1 - p];
+            for(int i = 0; i < len1 - p; i++)
+                num1New[i] = num1[i + p];
+            return findKth(num1New, len1 - p, num2, len2, k - p);
+        }
+        else if(num1[p - 1] > num2[q - 1]) {
+            int[] num2New = new int[len2 - q];
+            for(int i = 0; i < len2 - q; i++)
+                num2New[i] = num2[i + q];
+            return findKth(num1, len1, num2New, len2 - q, k - q);
+        }
+        else
+            return num1[p - 1];
+    }
+
 }
