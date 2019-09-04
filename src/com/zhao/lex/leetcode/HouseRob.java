@@ -12,7 +12,8 @@ public class HouseRob {
         for(int i = 1; i < nums.length - 1; i++) {
             int temp = preNoHead;
             preNoHead = Math.max(preNoHead, preYesHead);
-            preYesHead = Math.max(temp + nums[i], preYesHead);
+            preYesHead = temp + nums[i];
+//            preYesHead = Math.max(temp + nums[i], preYesHead);
             resultHead = Math.max(preNoHead, preYesHead);
         }
         int preYesTail = nums[nums.length -  1];
@@ -21,7 +22,8 @@ public class HouseRob {
         for(int i = 0; i < nums.length - 2; i++) {
             int temp = preNoTail;
             preNoTail = Math.max(preNoTail, preYesTail);
-            preYesTail = Math.max(temp + nums[i], preYesTail);
+            preYesTail = temp + nums[i];
+//            preYesTail = Math.max(temp + nums[i], preYesTail);
             resultTail = Math.max(preNoTail, preYesTail);
         }
         return Math.max(resultHead, resultTail);

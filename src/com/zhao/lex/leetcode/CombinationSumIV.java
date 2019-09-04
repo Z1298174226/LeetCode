@@ -22,7 +22,7 @@ public class CombinationSumIV {
                 list.add(i);
                 lists.add(list);
             } else if (i < target) {
-                List<List<Integer>> subLists = dfs(candidates, index, target - i, map);
+                List<List<Integer>> subLists = dfs(candidates, index + 1, target - i, map);
                 for (List<Integer> list : subLists) {
                     List<Integer> newList = new ArrayList<Integer>(list);
                     newList.add(0, i);

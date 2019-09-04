@@ -44,17 +44,17 @@ public class FourSum {
                 tmp.add(nums[end]);
                 ret.add(tmp);
                 while (start < end && nums[start] == nums[start + 1]) {
-                    start ++;
+                    start++;
                 }
                 while (start < end && nums[end] == nums[end - 1]) {
-                    end --;
+                    end--;
                 }
-                start ++;
-                end --;
+                start++;
+                end--;
             } else if (sum < target) {
-                start ++;
+                start++;
             } else {
-                end --;
+                end--;
             }
         }
     }

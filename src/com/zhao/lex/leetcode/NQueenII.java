@@ -1,6 +1,5 @@
 package com.zhao.lex.leetcode;
 
-import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +67,6 @@ public class NQueenII {
         return count;
     }
 
-    @Test
     public void test() {
         NQueenII n = new NQueenII();
         n.nQueenII(8);

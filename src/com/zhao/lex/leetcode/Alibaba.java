@@ -1,5 +1,7 @@
 package com.zhao.lex.leetcode;
+
 import java.util.Scanner;
+
 /**
  * Created by qtfs on 2019/4/12.
  */
@@ -10,23 +12,23 @@ public class Alibaba {
         int[][] dp = new int[totalVolume + 1][totalWeight + 1];
         int[][] dp1 = new int[totalVolume + 1][totalWeight + 1];
 
-        for(int i = 0; i <= totalVolume; i++) {
-            for(int j = 0; j <= totalWeight; j++) {
+        for (int i = 0; i <= totalVolume; i++) {
+            for (int j = 0; j <= totalWeight; j++) {
                 dp[i][j] = 0;
             }
         }
-        for(int i = 0; i <= totalVolume; i++) {
-            for(int j = 0; j <= totalWeight; j++) {
+        for (int i = 0; i <= totalVolume; i++) {
+            for (int j = 0; j <= totalWeight; j++) {
                 dp1[i][j] = 0;
             }
         }
 //
 
-        for(int i = 1; i <=  categoryCount; i++) {
-            if(i == 1) continue;
-            for(int l = 1; l <= stock[i]; l++) {
-                for(int j = totalVolume; j >= l * volume[i]; j--) {
-                    for(int k = totalWeight; k >= l * weight[i];  k--) {
+        for (int i = 1; i <= categoryCount; i++) {
+            if (i == 1) continue;
+            for (int l = 1; l <= stock[i]; l++) {
+                for (int j = totalVolume; j >= l * volume[i]; j--) {
+                    for (int k = totalWeight; k >= l * weight[i]; k--) {
                         if (j - l * volume[i] >= 0 && k - l * weight[i] >= 0 && dp[j][k] < dp[j - l * volume[i]][k - l * weight[i]] + l * price[i]) {
                             dp[j][k] = dp[j - l * volume[i]][k - l * weight[i]] + l * price[i];
                         }
@@ -36,11 +38,11 @@ public class Alibaba {
         }
 
 
-        for(int i = 1; i <=  categoryCount; i++) {
-            if(i == 3) continue;
-            for(int l = 1; l <= stock[i]; l++) {
-            for(int j = totalVolume; j >= l * volume[i]; j--) {
-                for(int k = totalWeight; k >= l * weight[i];  k--) {
+        for (int i = 1; i <= categoryCount; i++) {
+            if (i == 3) continue;
+            for (int l = 1; l <= stock[i]; l++) {
+                for (int j = totalVolume; j >= l * volume[i]; j--) {
+                    for (int k = totalWeight; k >= l * weight[i]; k--) {
                         if (j - l * volume[i] >= 0 && k - l * weight[i] >= 0 && dp1[j][k] < dp1[j - l * volume[i]][k - l * weight[i]] + l * price[i]) {//
                             dp1[j][k] = dp1[j - l * volume[i]][k - l * weight[i]] + l * price[i];
                         }
@@ -52,6 +54,7 @@ public class Alibaba {
         return Math.max(dp[totalVolume][totalWeight], dp1[totalVolume][totalWeight]);
 
     }
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         String[] line = in.nextLine().split(",");

@@ -11,8 +11,8 @@ public class OfoCombinationII {
         List<List<Integer>> lists = new ArrayList<List<Integer>>();
         List<Integer> list = new ArrayList<Integer>();
         dfs(lists, list, 1, n, n - 1);
-        for(List<Integer> li : lists) {
-            for(int num : li) {
+        for (List<Integer> li : lists) {
+            for (int num : li) {
                 System.out.print(String.format("%3d", num));
             }
             System.out.println();
@@ -21,11 +21,11 @@ public class OfoCombinationII {
     }
 
     private static void dfs(List<List<Integer>> lists, List<Integer> list, int index, int n, int k) {
-        if(k == 0) {
+        if (k == 0) {
             lists.add(new ArrayList<Integer>(list));
             return;
         }
-        for(int i = index; i <=n; i++) {
+        for (int i = index; i <= n; i++) {
             list.add(i);
             dfs(lists, list, i + 1, n, k - 1);
             list.remove(list.size() - 1);
